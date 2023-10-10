@@ -1,0 +1,37 @@
+# Dockerfile for Frontend (Streamlit)
+# Use a base image with Streamlit pre-installed
+FROM python:3.8-slim-buster as frontend
+
+# Set the working directory
+WORKDIR /app/frontend
+
+# Copy the Streamlit app files into the container
+COPY frontend/ .
+
+# Install any necessary dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the Streamlit port
+EXPOSE 8501
+
+# Start the Streamlit app
+CMD ["streamlit", "run", "main.py"]
+
+# Dockerfile for Backend (FastAPI)
+# Use a base image with Python pre-installed
+FROM python:3.8-slim-buster as backend
+
+# Set the working directory
+WORKDIR /app/backend
+
+# Copy the FastAPI app files into the container
+COPY backend/ .
+
+# Install any necessary dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the FastAPI port
+EXPOSE 8000
+
+# Start the FastAPI app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
