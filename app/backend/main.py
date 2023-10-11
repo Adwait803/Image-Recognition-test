@@ -17,5 +17,5 @@ if file_up is not None:
     st.write("Just a second...")
     labels = predict(file_up)
     for i in labels:
-        st.write("It is a ", i[0])
+        st.title("It is a ", i[0])
         break
