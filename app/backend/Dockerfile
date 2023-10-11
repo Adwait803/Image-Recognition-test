@@ -10,7 +10,7 @@ WORKDIR /app/backend
 COPY . /app/backend/
 
 # Install any necessary dependencies for the backend
-RUN pip install --no-cache-dir -r backend_requirement.txt
+RUN pip install --no-cache-dir -r requirement.txt
 
 # Expose the FastAPI port
 EXPOSE 8000
