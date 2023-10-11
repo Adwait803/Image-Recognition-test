@@ -85,17 +85,7 @@ multidict==6.0.2
 netaddr==0.8.0
 networkx==3.0
 numpy==1.23.4
-nvidia-cublas-cu11==11.10.3.66
-nvidia-cuda-cupti-cu11==11.7.101
-nvidia-cuda-nvrtc-cu11==11.7.99
-nvidia-cuda-runtime-cu11==11.7.99
-nvidia-cudnn-cu11==8.5.0.96
-nvidia-cufft-cu11==10.9.0.58
-nvidia-curand-cu11==10.2.10.91
-nvidia-cusolver-cu11==11.4.0.1
-nvidia-cusparse-cu11==11.7.4.91
-nvidia-nccl-cu11==2.14.3
-nvidia-nvtx-cu11==11.7.91
+
 onnx==1.14.0
 opencv-python==4.8.0.76
 openpyxl==3.1.2
@@ -169,7 +159,7 @@ typing_extensions==4.4.0
 tzdata==2022.5
 tzlocal==4.2
 
-uvicorn==0.18.3
+
 uvloop==0.17.0
 validators==0.20.0
 varint==1.0.2
