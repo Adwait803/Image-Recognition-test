@@ -10,9 +10,8 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
 
-def predict(image: Image.Image):
+def predict(image_path):
     model = torch.jit.load('scripted_dummymodel0.6758/data/model.pth')
-    #model.load_state_dict(torch.load('/home/ak/flower/examples/advanced_pytorch/art/0/efedf49b0c0a46019a7e7ff59170b206/artifacts/model/state_dict.pth'))
     model.eval()
 
     #https://pytorch.org/docs/stable/torchvision/models.html
@@ -25,8 +24,7 @@ def predict(image: Image.Image):
     std=[0.229, 0.224, 0.225]
     )])
 
-    #img = Image.open(image_path)
-    img=image
+    img = Image.open(image_path)
     batch_t = torch.unsqueeze(transform(img), 0)
 
     
@@ -38,10 +36,4 @@ def predict(image: Image.Image):
     prob = torch.nn.functional.softmax(out, dim=1)[0] * 100
     _, indices = torch.sort(out, descending=True)
     #return [classes[0], prob[0].item() ]
-    labels=[(classes[idx], prob[idx].item()) for idx in indices[0][:5]]
-    proby=[prob[idx].item() for idx in indices[0][:1]]
-    for i in labels:
-        res=str(i[0])
-        break
-    return res,proby
-    #return [(classes[idx], prob[idx].item()) for idx in indices[0][:5]]
+    return [(classes[idx], prob[idx].item()) for idx in indices[0][:5]]
