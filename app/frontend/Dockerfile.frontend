@@ -1,0 +1,19 @@
+# Dockerfile for Frontend (Streamlit)
+
+# Use a base image with Python and other dependencies
+FROM python:3.8-slim-buster
+
+# Set the working directory
+WORKDIR /app/frontend
+
+# Copy the Streamlit app files into the container
+COPY frontend/ .
+
+# Install any necessary dependencies for the frontend
+RUN pip install --no-cache-dir -r frontend_requirement.txt
+
+# Expose the Streamlit port
+EXPOSE 8501
+
+# Start the Streamlit app
+CMD ["streamlit", "run", "main.py"]
