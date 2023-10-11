@@ -6,6 +6,7 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 st.title("Simple Image Classification App")
 st.write("")
+st.write("Possible classes ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')")
 
 file_up = st.file_uploader("Upload an image", type="jpg")
 
