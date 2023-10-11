@@ -8,7 +8,7 @@ from PIL import Image
 
 st.set_option("deprecation.showfileUploaderEncoding", False)
 
-st.title("Async partial__ CIFAR")
+st.title("Image Classifier (CIFAR)")
 
 image = st.file_uploader("Choose an image")
 
