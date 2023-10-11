@@ -13,7 +13,8 @@ COPY . /app/backend/
 RUN pip install --no-cache-dir -r requirement.txt
 
 # Expose the FastAPI port
-EXPOSE 8000
+# Expose the Streamlit port
+EXPOSE 8501
 
-# Start the FastAPI app
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Start the Streamlit app
+CMD ["streamlit", "run", "main.py"]
