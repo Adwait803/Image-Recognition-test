@@ -1,0 +1,9 @@
+services:
+ - name:app
+   docker:
+     build: .
+   env: production
+   ports:
+     -8501
+     -8000
+   startCommand: ["supervisord",""-n]
