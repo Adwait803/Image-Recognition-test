@@ -7,7 +7,7 @@ FROM python:3.8-slim-buster
 WORKDIR /app/backend
 
 # Copy the FastAPI app files into the container
-COPY backend/ .
+COPY .
 
 # Install any necessary dependencies for the backend
 RUN pip install --no-cache-dir -r backend_requirement.txt
